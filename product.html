@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flipkart Shopping Page</title>
+
+    <style>
+
+        /* =========================
+           BASIC CSS
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f3f6;
+            color: #212121;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 65px;
+            background-color: #2874f0;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 8%;
+
+            gap: 25px;
+
+            color: white;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .logo span {
+            color: #ffe500;
+        }
+
+        .search-box {
+            width: 500px;
+            height: 40px;
+
+            background-color: white;
+
+            display: flex;
+            align-items: center;
+
+            border-radius: 2px;
+        }
+
+        .search-box input {
+            width: 100%;
+            height: 100%;
+
+            border: none;
+            outline: none;
+
+            padding: 0 15px;
+
+            font-size: 14px;
+        }
+
+        .search-icon {
+            color: #2874f0;
+            font-size: 20px;
+
+            padding: 0 15px;
+        }
+
+        .login-btn {
+            background-color: white;
+            color: #2874f0;
+
+            padding: 10px 35px;
+
+            border: none;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .nav-link {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+
+        /* =========================
+           CATEGORY SECTION
+        ========================= */
+
+        .categories {
+            background-color: white;
+
+            display: flex;
+            justify-content: center;
+
+            gap: 45px;
+
+            padding: 15px 20px;
+
+            box-shadow: 0 1px 3px #ccc;
+        }
+
+        .category {
+            text-align: center;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .category img {
+            width: 55px;
+            height: 55px;
+
+            object-fit: contain;
+
+            display: block;
+
+            margin: auto auto 7px;
+        }
+
+        .category:hover {
+            color: #2874f0;
+        }
+
+
+        /* =========================
+           HERO BANNER
+        ========================= */
+
+        .hero {
+            margin: 15px auto;
+
+            width: 94%;
+            height: 280px;
+
+            background: linear-gradient(
+                90deg,
+                #2874f0,
+                #5ca9ff
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 40px 70px;
+
+            color: white;
+
+            border-radius: 4px;
+
+            overflow: hidden;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .shop-btn {
+            background-color: #ff9f00;
+
+            color: white;
+
+            border: none;
+
+            padding: 13px 30px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            border-radius: 3px;
+        }
+
+        .hero-image {
+            font-size: 150px;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .main {
+            width: 94%;
+
+            margin: auto;
+
+            display: flex;
+
+            gap: 15px;
+        }
+
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            width: 230px;
+
+            background-color: white;
+
+            padding: 20px;
+
+            flex-shrink: 0;
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+
+            margin-bottom: 20px;
+
+            border-bottom: 1px solid #ddd;
+
+            padding-bottom: 15px;
+        }
+
+        .filter {
+            border-bottom: 1px solid #ddd;
+
+            padding: 15px 0;
+        }
+
+        .filter h3 {
+            font-size: 15px;
+
+            margin-bottom: 12px;
+        }
+
+        .filter label {
+            display: block;
+
+            margin: 10px 0;
+
+            color: #555;
+
+            font-size: 14px;
+
+            cursor: pointer;
+        }
+
+        .filter input {
+            margin-right: 8px;
+        }
+
+
+        /* =========================
+           PRODUCT AREA
+        ========================= */
+
+        .products-area {
+            background-color: white;
+
+            flex: 1;
+
+            padding: 20px;
+        }
+
+        .products-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid #ddd;
+
+            padding-bottom: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .products-header h2 {
+            font-size: 22px;
+        }
+
+        .sort {
+            padding: 8px 15px;
+
+            border: 1px solid #ccc;
+
+            background-color: white;
+        }
+
+
+        /* =========================
+           PRODUCT GRID
+        ========================= */
+
+        .product-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+
+        /* =========================
+           PRODUCT CARD
+        ========================= */
+
+        .product {
+            border: 1px solid #eee;
+
+            background-color: white;
+
+            padding: 15px;
+
+            position: relative;
+
+            transition: 0.3s;
+
+            cursor: pointer;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .discount {
+            position: absolute;
+
+            top: 10px;
+            left: 10px;
+
+            background-color: #388e3c;
+
+            color: white;
+
+            padding: 5px 8px;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            border-radius: 3px;
+        }
+
+        .product-image {
+            height: 200px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 10px;
+        }
+
+        .product-image img {
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+        }
+
+        .product h3 {
+            font-size: 15px;
+
+            line-height: 1.4;
+
+            margin-bottom: 8px;
+        }
+
+        .rating {
+            display: inline-block;
+
+            background-color: #388e3c;
+
+            color: white;
+
+            padding: 4px 7px;
+
+            font-size: 12px;
+
+            border-radius: 3px;
+
+            margin-bottom: 8px;
+        }
+
+        .reviews {
+            color: #878787;
+
+            font-size: 12px;
+        }
+
+        .price {
+            margin-top: 8px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+        .new-price {
+            font-size: 19px;
+
+            font-weight: bold;
+        }
+
+        .old-price {
+            font-size: 13px;
+
+            color: #878787;
+
+            text-decoration: line-through;
+        }
+
+        .offer {
+            color: #388e3c;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+        .delivery {
+            color: #388e3c;
+
+            font-size: 12px;
+
+            margin-top: 8px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background-color: #172337;
+
+            color: white;
+
+            margin-top: 40px;
+
+            padding: 40px 8%;
+        }
+
+        .footer-content {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 30px;
+        }
+
+        .footer-column h3 {
+            color: #878787;
+
+            font-size: 13px;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-column p {
+            font-size: 13px;
+
+            margin-bottom: 10px;
+
+            cursor: pointer;
+        }
+
+        .footer-column p:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+
+            border-top: 1px solid #555;
+
+            margin-top: 30px;
+
+            padding-top: 20px;
+
+            font-size: 13px;
+
+            color: #aaa;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 1100px) {
+
+            .product-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+            .search-box {
+                width: 350px;
+            }
+
+            .categories {
+                gap: 20px;
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                padding: 10px 20px;
+
+                height: auto;
+
+                flex-wrap: wrap;
+            }
+
+            .search-box {
+                order: 5;
+
+                width: 100%;
+            }
+
+            .categories {
+                overflow-x: auto;
+
+                justify-content: flex-start;
+            }
+
+            .hero {
+                height: 220px;
+
+                padding: 25px;
+            }
+
+            .hero-text h1 {
+                font-size: 30px;
+            }
+
+            .hero-image {
+                font-size: 80px;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .product-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            body {
+                padding: 0;
+            }
+
+            .navbar {
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .login-btn {
+                padding: 8px 15px;
+            }
+
+            .hero {
+                width: 100%;
+
+                border-radius: 0;
+
+                height: 200px;
+
+                padding: 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 24px;
+            }
+
+            .hero-text p {
+                font-size: 14px;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .main {
+                width: 100%;
+            }
+
+            .products-area {
+                padding: 10px;
+            }
+
+            .product-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 8px;
+            }
+
+            .product {
+                padding: 8px;
+            }
+
+            .product-image {
+                height: 150px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Flip<span>kart</span>
+        </div>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                placeholder="Search for products, brands and more"
+            >
+
+            <div class="search-icon">
+                🔍
+            </div>
+
+        </div>
+
+        <button class="login-btn">
+            Login
+        </button>
+
+        <div class="nav-link">
+            Become a Seller
+        </div>
+
+        <div class="nav-link">
+            More ▼
+        </div>
+
+        <div class="nav-link">
+            🛒 Cart
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================== -->
+
+    <div class="categories">
+
+        <div class="category">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png">
+
+            Grocery
+
+        </div>
+
+
+        <div class="category">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/552/552250.png">
+
+            Mobiles
+
+        </div>
+
+
+        <div class="category">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png">
+
+            Fashion
+
+        </div>
+
+
+        <div class="category">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3208/3208725.png">
+
+            Electronics
+
+        </div>
+
+
+        <div class="category">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3030/3030336.png">
+
+            Home
+
+        </div>
+
+
+        <div class="category">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3082/3082031.png">
+
+            Appliances
+
+        </div>
+
+
+        <div class="category">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081648.png">
+
+            Toys
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Big Billion Days
+            </h1>
+
+            <p>
+                Great deals on your favourite products
+            </p>
+
+            <button class="shop-btn">
+                Shop Now
+            </button>
+
+        </div>
+
+        <div class="hero-image">
+            🛍️
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MAIN SECTION
+    ========================== -->
+
+    <div class="main">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <h2>
+                Filters
+            </h2>
+
+
+            <div class="filter">
+
+                <h3>
+                    Categories
+                </h3>
+
+                <label>
+                    <input type="checkbox">
+                    Mobiles
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Laptops
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Fashion
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Electronics
+                </label>
+
+            </div>
+
+
+            <div class="filter">
+
+                <h3>
+                    Price
+                </h3>
+
+                <label>
+                    <input type="checkbox">
+                    Under ₹10,000
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    ₹10,000 - ₹20,000
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    ₹20,000 - ₹50,000
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Above ₹50,000
+                </label>
+
+            </div>
+
+
+            <div class="filter">
+
+                <h3>
+                    Customer Rating
+                </h3>
+
+                <label>
+                    <input type="checkbox">
+                    ⭐ 4★ & above
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    ⭐ 3★ & above
+                </label>
+
+            </div>
+
+
+            <div class="filter">
+
+                <h3>
+                    Brand
+                </h3>
+
+                <label>
+                    <input type="checkbox">
+                    Samsung
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Apple
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    OnePlus
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Realme
+                </label>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- PRODUCTS -->
+
+        <section class="products-area">
+
+
+            <div class="products-header">
+
+                <h2>
+                    Best Deals For You
+                </h2>
+
+                <select class="sort">
+
+                    <option>
+                        Sort by
+                    </option>
+
+                    <option>
+                        Price Low to High
+                    </option>
+
+                    <option>
+                        Price High to Low
+                    </option>
+
+                    <option>
+                        Popularity
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="product-grid">
+
+
+                <!-- PRODUCT 1 -->
+
+                <div class="product">
+
+                    <span class="discount">
+                        20% OFF
+                    </span>
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/o/5/4/-original-imah4egrk3g2jzgs.jpeg"
+                            alt="Samsung Mobile"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Samsung Galaxy Smartphone
+                    </h3>
+
+                    <span class="rating">
+                        4.4 ★
+                    </span>
+
+                    <span class="reviews">
+                        12,543
+                    </span>
+
+                    <div class="price">
+
+                        <span class="new-price">
+                            ₹19,999
+                        </span>
+
+                        <span class="old-price">
+                            ₹24,999
+                        </span>
+
+                        <span class="offer">
+                            20% off
+                        </span>
+
+                    </div>
+
+                    <p class="delivery">
+                        Free delivery
+                    </p>
+
+                </div>
+
+
+
+                <!-- PRODUCT 2 -->
+
+                <div class="product">
+
+                    <span class="discount">
+                        15% OFF
+                    </span>
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/y/2/6/-original-imah4egrk3g2jzgs.jpeg"
+                            alt="Smartphone"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Premium Android Smartphone
+                    </h3>
+
+                    <span class="rating">
+                        4.3 ★
+                    </span>
+
+                    <span class="reviews">
+                        8,421
+                    </span>
+
+                    <div class="price">
+
+                        <span class="new-price">
+                            ₹14,999
+                        </span>
+
+                        <span class="old-price">
+                            ₹17,999
+                        </span>
+
+                        <span class="offer">
+                            15% off
+                        </span>
+
+                    </div>
+
+                    <p class="delivery">
+                        Free delivery
+                    </p>
+
+                </div>
+
+
+
+                <!-- PRODUCT 3 -->
+
+                <div class="product">
+
+                    <span class="discount">
+                        30% OFF
+                    </span>
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://rukminim2.flixcart.com/image/416/416/xif0q/laptop/f/r/3/-original-imagzrfu2wz9nq7z.jpeg"
+                            alt="Laptop"
+                        >
+
+                    </div>
+
+                    <h3>
+                        HP Laptop Intel Core i5
+                    </h3>
+
+                    <span class="rating">
+                        4.5 ★
+                    </span>
+
+                    <span class="reviews">
+                        5,632
+                    </span>
+
+                    <div class="price">
+
+                        <span class="new-price">
+                            ₹49,999
+                        </span>
+
+                        <span class="old-price">
+                            ₹69,999
+                        </span>
+
+                        <span class="offer">
+                            30% off
+                        </span>
+
+                    </div>
+
+                    <p class="delivery">
+                        Free delivery
+                    </p>
+
+                </div>
+
+
+
+                <!-- PRODUCT 4 -->
+
+                <div class="product">
+
+                    <span class="discount">
+                        25% OFF
+                    </span>
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://rukminim2.flixcart.com/image/416/416/xif0q/headphone/q/l/m/-original-imagtyu4z5jzj9gz.jpeg"
+                            alt="Headphones"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Wireless Bluetooth Headphones
+                    </h3>
+
+                    <span class="rating">
+                        4.2 ★
+                    </span>
+
+                    <span class="reviews">
+                        7,832
+                    </span>
+
+                    <div class="price">
+
+                        <span class="new-price">
+                            ₹1,499
+                        </span>
+
+                        <span class="old-price">
+                            ₹1,999
+                        </span>
+
+                        <span class="offer">
+                            25% off
+                        </span>
+
+                    </div>
+
+                    <p class="delivery">
+                        Free delivery
+                    </p>
+
+                </div>
+
+
+
+                <!-- PRODUCT 5 -->
+
+                <div class="product">
+
+                    <span class="discount">
+                        35% OFF
+                    </span>
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://rukminim2.flixcart.com/image/416/416/xif0q/shoe/5/x/z/9-1g-123-9-campus-white-original-imagz7n8q5zqzjhz.jpeg"
+                            alt="Shoes"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Men's Running Sports Shoes
+                    </h3>
+
+                    <span class="rating">
+                        4.1 ★
+                    </span>
+
+                    <span class="reviews">
+                        4,321
+                    </span>
+
+                    <div class="price">
+
+                        <span class="new-price">
+                            ₹999
+                        </span>
+
+                        <span class="old-price">
+                            ₹1,499
+                        </span>
+
+                        <span class="offer">
+                            35% off
+                        </span>
+
+                    </div>
+
+                    <p class="delivery">
+                        Free delivery
+                    </p>
+
+                </div>
+
+
+
+                <!-- PRODUCT 6 -->
+
+                <div class="product">
+
+                    <span class="discount">
+                        40% OFF
+                    </span>
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://rukminim2.flixcart.com/image/416/416/xif0q/watch/u/8/y/-original-imagz7n8q5zqzjhz.jpeg"
+                            alt="Watch"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Stylish Analog Men's Watch
+                    </h3>
+
+                    <span class="rating">
+                        4.4 ★
+                    </span>
+
+                    <span class="reviews">
+                        9,521
+                    </span>
+
+                    <div class="price">
+
+                        <span class="new-price">
+                            ₹1,299
+                        </span>
+
+                        <span class="old-price">
+                            ₹2,199
+                        </span>
+
+                        <span class="offer">
+                            40% off
+                        </span>
+
+                    </div>
+
+                    <p class="delivery">
+                        Free delivery
+                    </p>
+
+                </div>
+
+
+
+                <!-- PRODUCT 7 -->
+
+                <div class="product">
+
+                    <span class="discount">
+                        18% OFF
+                    </span>
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://rukminim2.flixcart.com/image/416/416/xif0q/television/q/y/8/-original-imagz7n8q5zqzjhz.jpeg"
+                            alt="TV"
+                        >
+
+                    </div>
+
+                    <h3>
+                        43 Inch Smart LED TV
+                    </h3>
+
+                    <span class="rating">
+                        4.5 ★
+                    </span>
+
+                    <span class="reviews">
+                        3,421
+                    </span>
+
+                    <div class="price">
+
+                        <span class="new-price">
+                            ₹29,999
+                        </span>
+
+                        <span class="old-price">
+                            ₹36,999
+                        </span>
+
+                        <span class="offer">
+                            18% off
+                        </span>
+
+                    </div>
+
+                    <p class="delivery">
+                        Free delivery
+                    </p>
+
+                </div>
+
+
+
+                <!-- PRODUCT 8 -->
+
+                <div class="product">
+
+                    <span class="discount">
+                        22% OFF
+                    </span>
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://rukminim2.flixcart.com/image/416/416/xif0q/camera/b/4/x/-original-imagz7n8q5zqzjhz.jpeg"
+                            alt="Camera"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Digital Camera 24MP
+                    </h3>
+
+                    <span class="rating">
+                        4.3 ★
+                    </span>
+
+                    <span class="reviews">
+                        2,341
+                    </span>
+
+                    <div class="price">
+
+                        <span class="new-price">
+                            ₹34,999
+                        </span>
+
+                        <span class="old-price">
+                            ₹44,999
+                        </span>
+
+                        <span class="offer">
+                            22% off
+                        </span>
+
+                    </div>
+
+                    <p class="delivery">
+                        Free delivery
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div class="footer-column">
+
+                <h3>
+                    ABOUT
+                </h3>
+
+                <p>
+                    Contact Us
+                </p>
+
+                <p>
+                    About Us
+                </p>
+
+                <p>
+                    Careers
+                </p>
+
+                <p>
+                    Flipkart Stories
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    HELP
+                </h3>
+
+                <p>
+                    Payments
+                </p>
+
+                <p>
+                    Shipping
+                </p>
+
+                <p>
+                    Cancellation & Returns
+                </p>
+
+                <p>
+                    FAQ
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    CONSUMER POLICY
+                </h3>
+
+                <p>
+                    Cancellation & Returns
+                </p>
+
+                <p>
+                    Terms Of Use
+                </p>
+
+                <p>
+                    Security
+                </p>
+
+                <p>
+                    Privacy
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    SOCIAL
+                </h3>
+
+                <p>
+                    Facebook
+                </p>
+
+                <p>
+                    Twitter
+                </p>
+
+                <p>
+                    YouTube
+                </p>
+
+                <p>
+                    Instagram
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Flipkart-style Demo Website | Made using HTML & CSS
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
